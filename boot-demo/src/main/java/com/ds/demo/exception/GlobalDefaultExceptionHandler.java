@@ -18,6 +18,7 @@ public class GlobalDefaultExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
 	public String defaultExceptionHandler(Exception e) {
+		e.printStackTrace();
 		//to do
         return "error:" + e.getMessage();
     }

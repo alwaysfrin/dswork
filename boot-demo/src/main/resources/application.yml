@@ -1,0 +1,34 @@
+#change profiles
+spring:
+  profiles:
+    active: dev
+
+  #freemarker配置
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    prefix: 
+    suffix: .ftl
+
+  #启用redis配置
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000  #缓存有效期 
+  #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:  
+  
+#mybatis配置
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  

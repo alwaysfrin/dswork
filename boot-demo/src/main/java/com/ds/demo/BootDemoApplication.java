@@ -13,6 +13,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -22,6 +23,7 @@ import com.ds.demo.web.TestFilter;
 import com.ds.demo.web.TestSCListener;
 import com.ds.demo.web.TestServlet;
 
+@EnableCaching
 @SpringBootApplication
 public class BootDemoApplication extends SpringBootServletInitializer implements ServletContextInitializer{
 	
