@@ -2,19 +2,26 @@
 spring:
   profiles:
     active: dev
-
+  
+  #资源文件定位  
+  messages:
+    basename: i18n/messages
+  
   #freemarker配置
   freemarker:
     allow-request-override: false
-    cache: true
+    cache: false
     check-template-location: true
     charset: UTF-8
     content-type: text/html
     expose-request-attributes: false
     expose-session-attributes: false
-    expose-spring-macro-helpers: false
     prefix: 
     suffix: .ftl
+    #如果需要使用国际化，导入spring.ftl，此处需要打开spring微服务
+    expose-spring-macro-helpers: true
+    settings:
+      auto_import: /spring.ftl as spring   #导入页面spring标签
 
   #启用redis配置
   cache:

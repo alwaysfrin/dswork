@@ -2,6 +2,7 @@ package com.ds.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -12,9 +13,11 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -94,4 +97,12 @@ public class BootWebConfig {
           }
         };
     }
+	
+	@Bean
+	public LocaleResolver localeResolver() {
+		//添加默认区域语言设置
+	    final SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+	    localeResolver.setDefaultLocale(new Locale("zh","CN"));
+	    return localeResolver;
+	}
 }
